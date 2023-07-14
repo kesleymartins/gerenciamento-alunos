@@ -1,0 +1,54 @@
+{% extends 'application.html' %}
+
+{% block content %}
+
+    <h1>Criar Aluno</h1>
+
+    <div class="border shadow-sm rounded p-5">
+        <form action="{% url 'criar_aluno' %}" method="POST">
+            {% csrf_token %}
+            
+            <div class="mb-3">
+                {{ form.nome.label_tag }}
+                {{ form.nome }}
+            </div>
+            
+            <div class="mb-3">
+                {{ form.idade.label_tag }}
+                {{ form.idade }}
+            </div>
+
+            <div class="mb-3">
+                {{ form.curso.label_tag }}
+                {{ form.curso }}
+            </div>
+
+            <div class="mb-3">
+                {{ form.cpf.label_tag }}
+                {{ form.cpf }}
+            </div>
+
+            <div class="mb-3">
+                {{ form.rg.label_tag }}
+                {{ form.rg }}
+            </div>
+
+            <div class="mb-3">
+                {{ form.data_nascimento.label_tag }}
+                {{ form.data_nascimento }}
+            </div>
+
+            <div class="mb-3">
+                {{ form.data_ingreso.label_tag }}
+                {{ form.data_ingreso }}
+            </div>
+            
+            <div class="d-flex justify-content-end">
+                <button class="btn btn-primary">
+                    Enviar
+                </button>
+            </div>
+        </form>
+    </div>
+    </form>
+{% endblock content %}
