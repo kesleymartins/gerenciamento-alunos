@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import request
 from .forms import AlunoForm
 
@@ -8,6 +8,14 @@ def index(request):
 
 def criar_aluno(request):
     form = AlunoForm()
+
+    if request.method == 'POST':
+        form = AlunoForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            return redirect('alunos_cadastrados')
+
     context = { 'form': form }
     return render(request, 'criar-aluno.html', context)
 
