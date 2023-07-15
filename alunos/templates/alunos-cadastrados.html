@@ -1,7 +1,34 @@
 {% extends 'application.html' %}
 
 {% block content %}
-    <h1>Alunos Cadastrados</h1>
+    <section class="text-center mb-3">
+        <h2>Alunos Cadastrados</h2>
 
-    <a href="{% url 'criar_aluno' %}">Novo Aluno</a>
+        <a href="{% url 'criar_aluno' %}" class="btn btn-primary btn-sm">
+            Novo Aluno
+        </a>
+    </section>
+
+    <table class="table table-bordered table-hover align-middle table-sm">
+        <thead class="table-light">
+            <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Idade</th>
+                <th scope="col">Curso</th>
+                <th scope="col">Data de Nascimento</th>
+                <th scope="col">Data de Ingreso</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for aluno in alunos %}
+                <tr scope="row">
+                    <td>{{ aluno.nome }}</td>
+                    <td>{{ aluno.idade }}</td>
+                    <td>{{ aluno.curso }}</td>
+                    <td>{{ aluno.data_nascimento }}</td>
+                    <td>{{ aluno.data_ingresso }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 {% endblock content %}
