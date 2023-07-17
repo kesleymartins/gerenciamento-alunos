@@ -5,7 +5,11 @@ from .models import Aluno
 class AlunoForm(ModelForm):
     class Meta:
         model = Aluno
-        fields = ['nome', 'idade', 'curso', 'cpf', 'rg', 'data_nascimento', 'data_ingresso']
+        fields = [
+            'nome', 'idade', 'curso', 
+            'cpf', 'rg', 'data_nascimento', 
+            'data_ingresso', 'photo'
+        ]
 
     def __init__(self, *args, **kwargs):
         super(AlunoForm, self).__init__(*args, **kwargs)

@@ -5,7 +5,7 @@
     <h1>Criar Aluno</h1>
 
     <div class="border shadow-sm rounded p-5">
-        <form action="{% url 'criar_aluno' %}" method="POST">
+        <form action="{% url 'criar_aluno' %}" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             
             <div class="mb-3">
@@ -41,6 +41,11 @@
             <div class="mb-3">
                 {{ form.data_ingresso.label_tag }}
                 {{ form.data_ingresso }}
+            </div>
+
+            <div class="mb-3">
+                {{ form.photo.label_tag }}
+                {{ form.photo }}
             </div>
             
             <div class="d-flex justify-content-end">
