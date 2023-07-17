@@ -6,7 +6,11 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <p>Modal body text goes here.</p>
+        {% if aluno.photo %}
+          <img src="{{ aluno.photo.url }}" class="img-fluid" alt="Imagem do Aluno">
+        {% else %}
+          <span><i>Aluno Sem Foto.</i></span>
+        {% endif %}
       </div>
     </div>
   </div>
