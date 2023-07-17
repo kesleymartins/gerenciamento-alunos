@@ -1,5 +1,5 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
-from django.http import request
 from .forms import AlunoForm
 from .models import Aluno
 
@@ -7,6 +7,7 @@ def index(request):
     context = {}
     return render(request, 'index.html', context)
 
+@login_required(login_url="/auth/login")
 def criar_aluno(request):
     form = AlunoForm()
 
@@ -20,6 +21,7 @@ def criar_aluno(request):
     context = { 'form': form }
     return render(request, 'criar-aluno.html', context)
 
+@login_required(login_url="/auth/login")
 def alunos_cadastrados(request):
     alunos = Aluno.objects.all()
     context = { 'alunos': alunos }
