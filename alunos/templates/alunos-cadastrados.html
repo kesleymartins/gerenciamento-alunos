@@ -22,7 +22,11 @@
         <tbody>
             {% for aluno in alunos %}
                 <tr scope="row">
-                    <td>{{ aluno.nome }}</td>
+                    <td>
+                        <a href="{% url 'mostrar_aluno' aluno.id %}" class="open-modal">
+                            {{ aluno.nome }}
+                        </a>
+                    </td>
                     <td>{{ aluno.idade }}</td>
                     <td>{{ aluno.curso }}</td>
                     <td>{{ aluno.data_nascimento }}</td>
