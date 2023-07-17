@@ -12,7 +12,7 @@ def criar_aluno(request):
     form = AlunoForm()
 
     if request.method == 'POST':
-        form = AlunoForm(request.POST)
+        form = AlunoForm(request.POST, request.FILES)
 
         if form.is_valid():
             form.save()
