@@ -1,5 +1,5 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import AlunoForm
 from .models import Aluno
 
@@ -27,6 +27,7 @@ def alunos_cadastrados(request):
     context = { 'alunos': alunos }
     return render(request, 'alunos-cadastrados.html', context)
 
-def mostrar_aluno(request, pk):
-    context = {}
+def mostrar_aluno(request, id):
+    aluno = get_object_or_404(Aluno, pk=id)
+    context = { 'aluno': aluno }
     return render(request, 'mostrar-aluno.html', context)
