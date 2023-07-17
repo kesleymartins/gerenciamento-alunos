@@ -1,0 +1,28 @@
+{% extends 'application.html' %}
+
+{% block content %}
+    <div class="border rounded shadow-sm p-5">
+        <h1 class="text-center">Cadastro</h1>
+
+        <hr>
+
+        <form action="{% url 'usuario.cadastro' %}" method="POST">
+            <div class="mb-3">
+                <label for="username">Username:</label>
+                <input type="text" name="username" class="form-control">
+            </div>
+            
+            <div class="mb-3">
+                <label for="password">Senha:</label>
+                <input type="password" name="password" class="form-control">
+            </div>
+            
+            {% csrf_token %}
+
+            <div class="d-flex justify-content-end">
+                <input type="submit" value="Cadastrar" class="btn btn-primary">
+            </div>
+        </form>
+    </div>
+{% endblock content %}
+    
