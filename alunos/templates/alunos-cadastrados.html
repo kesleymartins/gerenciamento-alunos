@@ -31,4 +31,14 @@
             {% endfor %}
         </tbody>
     </table>
+
+    <div id="modal"></div>
 {% endblock content %}
+
+
+{% block js_block %}
+    {% load static %}
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="text/javascript" src="{% static 'modal.js' %}"></script>
+{% endblock js_block %}
+    
